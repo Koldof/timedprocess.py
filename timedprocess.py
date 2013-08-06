@@ -37,11 +37,11 @@ command_line_warning =      "\nWARNING: these will be passed to the command line
 invalid_arguments_error =   "\nYou have entered an invalid argument, use -h to see usage."
 process_open_error =        "\nThe program couldn't open that file. This is usually a problem with the path."
 invalid_time_warning =      "\nWARNING: Invalid time argument: '%s'."
-#flag_definitions =          {'-h':'print_help', '-s':'shutdown'}
+help_flags =                ['-h', '--help']
 
 def main():
     arguments = sys.argv[1:]
-    process_path, time, flags = get_args(arguments)
+    process_path, time = get_args(arguments)
     try:
         popen_process = subprocess.Popen(process_path)
         sleep(time)
