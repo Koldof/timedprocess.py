@@ -1,30 +1,31 @@
-timedprocess.py
+#timedprocess.py
 ===============
 
-What is it?
+##What is it?
 ---------------
-Run a program for a specified lenght of time, via an easy to use command line interface.
+A simple command line tool to run a program for a specified duration. 
 
-How do I install it?
+##\Features?
 ---------------
-Once you have [python][1](Recommended v2.7.5), you can run it either from the command line or by running the script normally.
+usage: timedprocess <options> <duration> <path>
 
-Features?
+Duration:
+\tA string containing a time, for example:
+```
+"5h"
+"5h25m"
+"25m40s4h"
+```
+
+Options:
+\t--hide-time-remaining \t\t flags to hide the time remaining.
+\t-help, -h, --help \t\t Show this message and exit.
+
+##How do I install it?
 ---------------
-Currently you can run it from the command line with these paramaters:
+The project uses Python's automatic script creation, so if everything goes well, after the project is installed you should be able to run it straight away from terminal the same way you would run pip for instance.
 
-    timedprocess.py [-h] [-s] path time
-        UNIMPLEMENTED -h: print the help file
-        UNIMPLEMENTED -s: shutdown once the program is finished
+I recommend using pip to install:
+`pip install timedprocess.py
 
-        time can be a time, or can be any consecutive instances of time.
-        time format: [float]h/m/s
-        Unit Legend: s=second | m=minutes | h=hour
-
-If it wasn't run with arguments it will ask for the arguments with the default python command line.
-
-Notes
----------------
-A GUI interface is currently planned, though I'd like to cement most of the features first.
-
-[1]: http://www.python.org/download/ "Python"
+If you prefer you can try use easy_install on the setup.py, although I haven't tested this yet.
