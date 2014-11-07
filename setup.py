@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
 	name="timedprocess.py",
-	version="1.0a1",
+	version="1.0a2",
 	description="Run a program for a specified duration",
 	author = "Aaron Delaney",
 	url = "https://github.com/koldof/timedprocess.py",
