@@ -32,4 +32,4 @@ pip install timedprocess.py
 
 If you prefer you can try use easy_install on the setup.py, although I haven't tested this yet.
 
-If none of the above will work for you, just run timedprocess.py as a script having installed the python module [https://github.com/mitsuhiko/click](Click)
+If none of the above will work for you, just run timedprocess.py as a script having installed the python module [Click]]([https://github.com/mitsuhiko/click)
