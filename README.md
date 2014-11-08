@@ -5,7 +5,7 @@
 A simple command line tool to run a program for a specified duration. 
 
 ###Features?
-usage: timedprocess <options> <duration> <path>
+usage: timedprocess options duration path
 
 Duration:
 A string containing a time, for example:
@@ -32,4 +32,4 @@ pip install timedprocess.py
 
 If you prefer you can try use easy_install on the setup.py, although I haven't tested this yet.
 
-If none of the above will work for you, just run timedprocess.py as a script having installed the python module [Click]([https://github.com/mitsuhiko/click)
+If none of the above will work for you, just run timedprocess.py as a script having installed the python module (Click)[https://github.com/mitsuhiko/click]
