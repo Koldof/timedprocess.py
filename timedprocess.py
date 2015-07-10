@@ -7,6 +7,7 @@
 import subprocess
 import click
 import re
+import sys	
 
 from time import sleep
 
@@ -32,17 +33,21 @@ class StringTimeType(click.ParamType):
         except ValueError:
             self.fail("%s is not a valid duration" % value, param, ctx)
 
+
+# Start Click Definitions #####################	
 stringtime = StringTimeType()
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '-help', '--help'])
 
 @click.command(context_settings=CONTEXT_SETTINGS, options_metavar='<options>')
 
-@click.option("--show-time-remaining", help="flag to show the time remaining", is_flag=True))
+@click.option("--show-time-remaining", help="flag to show the time remaining", is_flag=True)
 
 @click.argument("duration", type=stringtime, metavar="<duration>")
-@click.argument("path", type=click.Path(exists=True, dir_okay=False), metavar="<path>")
 
-def cli(show_time_remaining, verbose, duration, path):
+@click.argument("path", type=click.Path(exists=True, dir_okay=False), metavar="<path>")
+###############################################
+
+def cli(show_time_remaining, duration, path):
     """
     A simple command line tool to run a program for a specified duration
 
@@ -54,26 +59,30 @@ def cli(show_time_remaining, verbose, duration, path):
         popen_process = subprocess.Popen(path)
         sleep_iterator = [1] * duration
         time_left = duration
-		# maybe I should change over to using substitution... 
-		seperator = '='*5
-		output = (seperator + 'running the program - PID:' + popen_process.pid + seperator)
+        seperator = '='*5
+        output = (seperator + 'running the program - PID:' + popen_process.pid + seperator)
         for time_to_sleep in sleep_iterator:
             if show_time_remaining:
                 click.echo("Time Remaining: %s seconds" % time_left)
             time_left = time_left - time_to_sleep
             sleep(time_to_sleep)
         popen_process.terminate()
+        
+        if duration % time_left == 0:
+            returncode = popen_process.poll()
+            if returncode != None:
+                click.echo("Process has terminated. Termination code: %s" % returncode)
+                sys.exit(0)
+                
+    except OSError:
+        click.echo("Error running file. Do you have permission and is the path correct?")
+        sys.exit(-1)
 		
-		if duration % time_left == 0:
-			returncode = popen_process.poll()
-			if returncode != None:
-				click.echo("Process has terminated. Termination code: %s" % returncode)
-				break
-				
-	except OSError:
-		click.echo("Error running file. Do you have permission and is the path correct?")
     except WindowsError:
         click.echo("Error running file. Do you have permission and is the path correct?")
+        sys.exit(-1)
 		
+    sys.exit(0)
+    
 if __name__ == "__main__":
     cli()
