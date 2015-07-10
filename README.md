@@ -1,5 +1,6 @@
 #timedprocess.py
 
+
 ###What is it?
 
 A simple command line tool to run a program for a specified duration. 
@@ -33,3 +34,7 @@ pip install timedprocess.py
 If you prefer you can try use easy_install on the setup.py, although I haven't tested this yet.
 
 If none of the above will work for you, just run timedprocess.py as a script having installed the python module [Click](https://github.com/mitsuhiko/click)
+
+# Branches
+
+The develop branch is only for use for development. It is not stable, usually does not pass tests, and is not hosted on PyPi. Use with caution. 
