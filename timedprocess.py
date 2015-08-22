@@ -1,13 +1,13 @@
 
 #!/usr/bin/python
 
-# Created by Aaron Delaney - koldof.net
+# Created by Aaron Delaney - devoxel.net
 # GNU General Public License (see LICENSE)
 
 import subprocess
 import click
 import re
-import sys	
+import sys
 
 from time import sleep
 
@@ -34,7 +34,7 @@ class StringTimeType(click.ParamType):
             self.fail("%s is not a valid duration" % value, param, ctx)
 
 
-# Start Click Definitions #####################	
+# Start Click Definitions #####################
 stringtime = StringTimeType()
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '-help', '--help'])
 
@@ -60,29 +60,29 @@ def cli(show_time_remaining, duration, path):
         sleep_iterator = [1] * duration
         time_left = duration
         seperator = '='*5
-        output = (seperator + 'running the program - PID:' + popen_process.pid + seperator)
+        output = (seperator + 'running the program - PID: ' + popen_process.pid + seperator)
         for time_to_sleep in sleep_iterator:
             if show_time_remaining:
                 click.echo("Time Remaining: %s seconds" % time_left)
             time_left = time_left - time_to_sleep
             sleep(time_to_sleep)
         popen_process.terminate()
-        
+
         if duration % time_left == 0:
             returncode = popen_process.poll()
             if returncode != None:
                 click.echo("Process has terminated. Termination code: %s" % returncode)
                 sys.exit(0)
-                
+
     except OSError:
         click.echo("Error running file. Do you have permission and is the path correct?")
         sys.exit(-1)
-		
+
     except WindowsError:
         click.echo("Error running file. Do you have permission and is the path correct?")
         sys.exit(-1)
-		
+
     sys.exit(0)
-    
+
 if __name__ == "__main__":
     cli()

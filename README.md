@@ -1,9 +1,8 @@
 #timedprocess.py
 
-
 ###What is it?
 
-A simple command line tool to run a program for a specified duration. 
+A simple command line tool to run a program for a specified duration.
 
 ###Features?
 usage: timedprocess options duration path
@@ -24,7 +23,9 @@ Options:
 
 ###How do I install it?
 
-The project uses Python's automatic script creation, so if everything goes well, after the project is installed you should be able to run it straight away from terminal the same way you would run pip for instance.
+The project uses setup_tools's automatic script creation, so if everything goes
+well, after the project is installed you should be able to run it straight away
+ from terminal the same way you would run pip for instance.
 
 I recommend using pip to install:
 ```
@@ -33,8 +34,17 @@ pip install timedprocess.py
 
 If you prefer you can try use easy_install on the setup.py, although I haven't tested this yet.
 
-If none of the above will work for you, just run timedprocess.py as a script having installed the python module [Click](https://github.com/mitsuhiko/click)
-
 # Branches
 
-The develop branch is only for use for development. It is not stable, usually does not pass tests, and is not hosted on PyPi. Use with caution. 
+The develop branch is only for use for development.
+
+Use with caution.
+
+# License
+GNU GENERAL PUBLIC LICENSE, see LICENSE
+
+----------------------
+
+Made with <3 by Aaron Delaney (@devoxel)
+
+##### PyPi Link: https://pypi.python.org/pypi/timedprocess.py/
