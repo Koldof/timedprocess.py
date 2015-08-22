@@ -50,4 +50,3 @@ GNU GENERAL PUBLIC LICENSE, see LICENSE
 Made with <3 by Aaron Delaney (@devoxel)
 
 ##### PyPi Link: https://pypi.python.org/pypi/timedprocess.py/
->>>>>>> develop
