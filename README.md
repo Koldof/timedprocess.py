@@ -1,5 +1,8 @@
 #timedprocess.py
 
+# Depreciated!
+
+I don't need to use this anymore, but I'll keep it around if anybody wants it.
 
 ###What is it?
 
